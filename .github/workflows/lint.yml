@@ -1,0 +1,21 @@
+name: Lint
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - name: Install
+      run: npm install
+    - name: Run eslint
+      run: npm run eslint
+    - name: Run stylelint
+      run: npm run stylelint
+    - name: Run tsc
+      run: npm run type-check
